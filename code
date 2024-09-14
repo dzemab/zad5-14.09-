@@ -1,0 +1,11 @@
+fun main() {
+    println("Enter a list of words (separated by commas):")
+    val input = readLine()!!.trim()
+    val words = input.split(",").map { it.trim().toLowerCase() }
+
+    val groupedWords = words.groupBy { it.toCharArray().sorted().joinToString("") }
+
+    for ((key, group) in groupedWords) {
+        println(group.joinToString(", "))
+    }
+}
